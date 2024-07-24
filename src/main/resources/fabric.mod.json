@@ -13,10 +13,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "org.build.ignoring.Ignoring"
+      "org.stellium.ignoring.Ignoring"
     ],
     "modmenu": [
-      "org.build.ignoring.config.IgnoringModMenuImpl"
+      "org.stellium.ignoring.config.IgnoringModMenuImpl"
     ]
   },
   "mixins": [

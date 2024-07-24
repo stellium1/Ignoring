@@ -1,11 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "org.build.ignoring.mixin",
+  "package": "org.stellium.ignoring.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "PlayerEntityRendererMixin",
-    "ChatMixin"
+    "ChatMixin",
+    "PlayerEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
