@@ -21,7 +21,7 @@ public abstract class PlayerEntityRendererMixin extends EntityRenderer<AbstractC
 
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     private void render(AbstractClientPlayerEntity player, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
-        if (IgnoringConfig.get().ignoredPlayerList.contains(player.getEntityName()) && (IgnoringConfig.get().ignoreRender)) {
+        if (IgnoringConfig.get().ignoredPlayerList.contains(player.getNameForScoreboard()) && (IgnoringConfig.get().ignoreRender)) {
                 ci.cancel();
         }
     }

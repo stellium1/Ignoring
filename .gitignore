@@ -5,16 +5,18 @@ bin
 .classpath
 .project
 classes
-
+#
 out
 *.ipr
 *.iws
 *.iml
 .idea
-
+#
 .vscode
-
 build
+
+
+
 .gradle
 
 eclipse
