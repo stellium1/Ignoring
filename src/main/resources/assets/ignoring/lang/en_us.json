@@ -1,0 +1,17 @@
+{
+  "text.autoconfig.ignoring.title": "Ignoring Config",
+  "text.autoconfig.ignoring.option.ignoreChat": "Ignore Chat",
+  "text.autoconfig.ignoring.option.ignoreRender": "Ignore Player Render",
+  "text.autoconfig.ignoring.option.ignoreTablist": "Ignore Tablist",
+  "text.autoconfig.ignoring.option.ignoredPlayerList": "Ignored Player List",
+
+
+  "text.autoconfig.ignoring.option.ignoreChat.@Tooltip": "Toggle ignoring chat from blocked players",
+  "text.autoconfig.ignoring.option.ignoreRender.@Tooltip": "Toggle rendering of blocked players",
+  "text.autoconfig.ignoring.option.ignoreTablist.@Tooltip": "Toggle display of blocked players on the tablist",
+
+  "text.autoconfig.ignoring.option.ignoredPlayerList.@Tooltip": "Manage blocked players"
+
+
+
+}

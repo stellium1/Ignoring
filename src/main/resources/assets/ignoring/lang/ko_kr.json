@@ -1,0 +1,13 @@
+{
+  "text.autoconfig.ignoring.title": "Ignoring 설정",
+  "text.autoconfig.ignoring.option.ignoreChat": "채팅 차단 여부",
+  "text.autoconfig.ignoring.option.ignoreRender": "플레이어 렌더 차단 여부",
+  "text.autoconfig.ignoring.option.ignoredPlayerList": "무시할 플레이어 목록",
+
+
+  "text.autoconfig.ignoring.option.ignoreChat.@Tooltip": "무시할 플레이어 목록에 있는 유저의 닉네임이 들어간 채팅을 전부 무시합니다",
+  "text.autoconfig.ignoring.option.ignoreRender.@Tooltip": "무시할 플레이어 목록에 있는 유저의 외형을 보지 않습니다",
+
+
+  "text.autoconfig.ignoring.option.ignoredPlayerList.@Tooltip": "무시할 유저 관리 (닉네임)"
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "ignoring",
+  "version": "${version}",
+  "name": "Ignoring",
+  "description": "차단했는데 머라함?",
+  "authors": ["build"],
+  "contact": {
+    "repo": "https://github.com/stellium1/Ignoring"
+  },
+  "license": "MIT",
+  "icon": "assets/ignoring/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.build.ignoring.Ignoring"
+    ],
+    "modmenu": [
+      "org.build.ignoring.config.IgnoringModMenuImpl"
+    ]
+  },
+  "mixins": [
+    "ignoring.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
