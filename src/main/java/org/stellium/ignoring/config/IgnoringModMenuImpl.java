@@ -11,4 +11,6 @@ public class IgnoringModMenuImpl implements ModMenuApi {
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return parent -> AutoConfig.getConfigScreen(IgnoringConfig.class, parent).get();
     }
+
+    //test
 }
