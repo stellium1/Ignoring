@@ -74,3 +74,8 @@ publishing {
     repositories {
     }
 }
+
+
+remapJar {
+    archiveFileName = "${project.base.archivesName.get()}-${project.minecraft_version}+${version}.${project.jar.archiveExtension.get()}"
+}

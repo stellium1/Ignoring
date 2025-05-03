@@ -14,12 +14,11 @@ out
 #
 .vscode
 build
-
-
+run
 
 .gradle
 
 eclipse
-run
+
 logs
 
