@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "Ignoring",
   "description": "차단했는데 머라함?",
-  "authors": ["build"],
+  "authors": ["stellium"],
   "contact": {
     "repo": "https://github.com/stellium1/Ignoring"
   },
