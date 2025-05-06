@@ -1,0 +1,32 @@
+{
+  "text.autoconfig.ignoring.title": "Ignoring 설정",
+  "text.autoconfig.ignoring.option.ignoreChat": "채팅 무시 여부",
+  "text.autoconfig.ignoring.option.ignoreRender": "플레이어 렌더링 무시 여부",
+  "text.autoconfig.ignoring.option.ignoreTablist": "탭 목록 무시 여부",
+  "text.autoconfig.ignoring.option.ignoredPlayerList": "무시 플레이어 목록",
+  "text.autoconfig.ignoring.option.transparency": "무시 플레이어 투명도",
+  "text.autoconfig.ignoring.option.interactionThroughIgnoredPlayer": "무시한 플레이어와의 상호작용 끄기",
+
+  "text.autoconfig.ignoring.option.ignoreChat.@Tooltip": "무시된 플레이어의 채팅을 표시하지 않습니다.",
+  "text.autoconfig.ignoring.option.ignoreRender.@Tooltip": "무시된 플레이어의 렌더링을 비활성화합니다.",
+  "text.autoconfig.ignoring.option.ignoreTablist.@Tooltip": "탭 목록에서 무시된 플레이어를 숨깁니다.",
+  "text.autoconfig.ignoring.option.transparency.@Tooltip": "무시된 플레이어의 투명도를 설정합니다.",
+  "text.autoconfig.ignoring.option.interactionThroughIgnoredPlayer.@Tooltip[0]": "무시한 플레이어를 넘어 상호작용할 수 있습니다.",
+  "text.autoconfig.ignoring.option.interactionThroughIgnoredPlayer.@Tooltip[1]": "§c주의! 해당 기능으로 인한 불이익은 책임지지 않습니다. 서버 규칙에 맞게 사용하세요.",
+
+  "text.autoconfig.ignoring.option.ignoredPlayerList.@Tooltip": "무시할 플레이어를 관리합니다",
+
+  "text.ignoring.key.category": "Ignoring 단축키",
+  "text.ignoring.key.openConfig": "설정 열기",
+  "text.ignoring.key.toggleIgnoreRender": "렌더 무시 전환",
+  "text.ignoring.key.toggleIgnoreChat": "채팅 무시 전환",
+  "text.ignoring.key.toggleIgnoreTablist": "탭 무시 전환",
+  "text.ignoring.key.toggleInteractionThroughIgnoredPlayer": "상호작용 무시 전환",
+
+  "text.ignoring.toggle.ignoreRender": "렌더 무시",
+  "text.ignoring.toggle.ignoreChat": "채팅 무시",
+  "text.ignoring.toggle.ignoreTablist": "탭 무시",
+  "text.ignoring.toggle.interactionThroughIgnoredPlayer": "상호작용 무시",
+  "text.ignoring.status.enabled": "활성화",
+  "text.ignoring.status.disabled": "비활성화"
+}

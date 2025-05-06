@@ -1,0 +1,32 @@
+{
+  "text.autoconfig.ignoring.title": "Ignoring Config",
+  "text.autoconfig.ignoring.option.ignoreChat": "Ignore Chat",
+  "text.autoconfig.ignoring.option.ignoreRender": "Ignore Player Render",
+  "text.autoconfig.ignoring.option.ignoreTablist": "Ignore Tablist",
+  "text.autoconfig.ignoring.option.ignoredPlayerList": "Ignored Player List",
+  "text.autoconfig.ignoring.option.transparency": "Ignored Player Transparency",
+  "text.autoconfig.ignoring.option.interactionThroughIgnoredPlayer": "Click Through Ignored Players",
+
+  "text.autoconfig.ignoring.option.ignoreChat.@Tooltip": "Toggle ignoring chat from blocked players.",
+  "text.autoconfig.ignoring.option.ignoreRender.@Tooltip": "Toggle rendering of blocked players.",
+  "text.autoconfig.ignoring.option.ignoreTablist.@Tooltip": "Toggle display of blocked players on the tablist.",
+  "text.autoconfig.ignoring.option.transparency.@Tooltip": "Adjust transparency of ignored users' rendering.",
+  "text.autoconfig.ignoring.option.interactionThroughIgnoredPlayer.@Tooltip[0]": "Allows clicking blocks/entities behind ignored players.",
+  "text.autoconfig.ignoring.option.interactionThroughIgnoredPlayer.@Tooltip[1]": "§cWarning! Use this feature at your own risk. Make sure to follow the server rules.",
+
+  "text.autoconfig.ignoring.option.ignoredPlayerList.@Tooltip": "Manage blocked players manually.",
+
+  "text.ignoring.key.category": "Ignoring Hotkeys",
+  "text.ignoring.key.openConfig": "Open Config",
+  "text.ignoring.key.toggleIgnoreRender": "Toggle Ignore Render",
+  "text.ignoring.key.toggleIgnoreChat": "Toggle Ignore Chat",
+  "text.ignoring.key.toggleIgnoreTablist": "Toggle Ignore Tablist",
+  "text.ignoring.key.toggleInteractionThroughIgnoredPlayer": "Toggle Click-Through Ignored",
+
+  "text.ignoring.toggle.ignoreRender": "Ignore Render",
+  "text.ignoring.toggle.ignoreChat": "Ignore Chat",
+  "text.ignoring.toggle.ignoreTablist": "Ignore Tablist",
+  "text.ignoring.toggle.interactionThroughIgnoredPlayer": "Click-Through",
+  "text.ignoring.status.enabled": "Enabled",
+  "text.ignoring.status.disabled": "Disabled"
+}
