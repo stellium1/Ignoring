@@ -1,0 +1,13 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "org.stellium.ignoring.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "sodium.ItemRendererMixinMixin",
+    "sodium.ModelBlockRendererMixinMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
