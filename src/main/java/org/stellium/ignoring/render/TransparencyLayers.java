@@ -1,20 +1,12 @@
 package org.stellium.ignoring.render;
 
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.RenderLayer.MultiPhaseParameters;
-import net.minecraft.client.render.RenderPhase.Texture;
 import net.minecraft.client.render.TexturedRenderLayers;
-import net.minecraft.client.render.VertexFormat.DrawMode;
-import net.minecraft.client.render.VertexFormats;
-import net.minecraft.client.render.entity.equipment.EquipmentModel.LayerType;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.TriState;
-import net.minecraft.util.Util;
 import org.stellium.ignoring.config.IgnoringConfig;
 import org.stellium.ignoring.entity.EntityCaptures;
 
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 
@@ -28,27 +20,20 @@ import java.util.function.Supplier;
 public class TransparencyLayers {
 
 	static {
+        TransparencyRenderPipelines.register();
 		IgnoringConfig.init();
 	}
 
-	private static final TriState triState = TriState.FALSE;
-
-
-	private static final Function<Identifier, RenderLayer> ITEM_ENTITY_TRANSLUCENT_NO_CULL = Util.memoize((texture) -> {
-		MultiPhaseParameters multiPhaseParameters = MultiPhaseParameters.builder().program(RenderLayer.ITEM_ENTITY_TRANSLUCENT_CULL_PROGRAM).texture(new Texture(texture, triState, false)).transparency(RenderLayer.TRANSLUCENT_TRANSPARENCY).cull(RenderLayer.DISABLE_CULLING).target(RenderLayer.ITEM_ENTITY_TARGET).lightmap(RenderLayer.ENABLE_LIGHTMAP).overlay(RenderLayer.ENABLE_OVERLAY_COLOR).writeMaskState(RenderLayer.ALL_MASK).build(true);
-		return RenderLayer.of("item_entity_translucent_no_cull", VertexFormats.POSITION_COLOR_TEXTURE_OVERLAY_LIGHT_NORMAL, DrawMode.QUADS, 1536, true, true, multiPhaseParameters);
-	});
-
-	public static RenderLayer getLayerNoCull(LayerType layerType, Identifier texture, Supplier<RenderLayer> original) {
-		if (canReplaceRenderLayer()) {
-			if (layerType == LayerType.WINGS) {
-				return ITEM_ENTITY_TRANSLUCENT_NO_CULL.apply(texture);
-			} else {
-				return RenderLayer.getItemEntityTranslucentCull(texture);
-			}
-		}
-		return original.get();
-	}
+    public static RenderLayer getArmorLayer(boolean cull, Identifier texture, Supplier<RenderLayer> original) {
+        if (canReplaceRenderLayer()) {
+            if (cull) {
+                return RenderLayer.getItemEntityTranslucentCull(texture);
+            } else {
+                return TransparencyItemEntityNoCullLayer.ITEM_ENTITY_TRANSLUCENT_NO_CULL.apply(texture);
+            }
+        }
+        return original.get();
+    }
 
 	public static RenderLayer getLayer(Identifier texture, Supplier<RenderLayer> original) {
 		if (canReplaceRenderLayer()) {
@@ -64,12 +49,12 @@ public class TransparencyLayers {
 		return original;
 	}
 
-	public static RenderLayer getLayer(Supplier<RenderLayer> original) {
-		if (canReplaceRenderLayer()) {
-			return TexturedRenderLayers.getItemEntityTranslucentCull();
-		}
-		return original.get();
-	}
+    public static RenderLayer getItemLayer(Supplier<RenderLayer> original) {
+        if (canReplaceRenderLayer()) {
+            return TexturedRenderLayers.getItemEntityTranslucentCull();
+        }
+        return original.get();
+    }
 
 	private static boolean canReplaceRenderLayer() {
 		IgnoringConfig config;

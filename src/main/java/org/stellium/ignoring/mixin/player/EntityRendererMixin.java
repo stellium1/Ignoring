@@ -20,31 +20,32 @@ public class EntityRendererMixin {
             method = "renderLabelIfPresent",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/text/Text;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)I",
+                    target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/text/Text;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)V",
                     ordinal = 0
             )
     )
-    private int injected$sneaking(TextRenderer instance, Text text, float x, float y, int color, boolean shadow, Matrix4f matrix, VertexConsumerProvider vertexConsumers, TextRenderer.TextLayerType layerType, int backgroundColor, int light) {
+    private void injected$sneaking(TextRenderer instance, Text text, float x, float y, int color, boolean shadow, Matrix4f matrix, VertexConsumerProvider vertexConsumers, TextRenderer.TextLayerType layerType, int backgroundColor, int light) {
         if (EntityCaptures.MAIN.getEntity() == null) {
-            return instance.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
+            instance.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
+        } else {
+            instance.draw(text, x, y, swapAlpha(color, IgnoringConfig.get().transparency), shadow, matrix, vertexConsumers, layerType, swapAlpha(backgroundColor, IgnoringConfig.get().transparency), light);
         }
-        return instance.draw(text, x, y, swapAlpha(color, IgnoringConfig.get().transparency), shadow, matrix, vertexConsumers, layerType, swapAlpha(backgroundColor, IgnoringConfig.get().transparency), light);
     }
 
     @Redirect(
             method = "renderLabelIfPresent",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/text/Text;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)I",
+                    target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/text/Text;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)V",
                     ordinal = 1
             )
     )
-    private int injected$notSneaking(TextRenderer instance, Text text, float x, float y, int color, boolean shadow, Matrix4f matrix, VertexConsumerProvider vertexConsumers, TextRenderer.TextLayerType layerType, int backgroundColor, int light) {
+    private void injected$notSneaking(TextRenderer instance, Text text, float x, float y, int color, boolean shadow, Matrix4f matrix, VertexConsumerProvider vertexConsumers, TextRenderer.TextLayerType layerType, int backgroundColor, int light) {
         if (EntityCaptures.MAIN.getEntity() == null) {
-            return instance.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
+            instance.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
+        } else {
+            instance.draw(text, x, y, swapAlpha(color, IgnoringConfig.get().transparency), shadow, matrix, vertexConsumers, layerType, swapAlpha(backgroundColor, IgnoringConfig.get().transparency), light);
         }
-
-        return instance.draw(text, x, y, swapAlpha(color, IgnoringConfig.get().transparency), shadow, matrix, vertexConsumers, layerType, swapAlpha(backgroundColor, IgnoringConfig.get().transparency), light);
     }
 
 }

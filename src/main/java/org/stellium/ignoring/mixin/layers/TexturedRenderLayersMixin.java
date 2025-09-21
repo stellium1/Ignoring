@@ -17,12 +17,12 @@ import org.stellium.ignoring.render.TransparencyLayers;
 @Mixin(TexturedRenderLayers.class)
 public class TexturedRenderLayersMixin {
 
-	@Inject(at = @At("RETURN"), method = {
-			"getEntityCutout",
-			"getEntitySolid"
-	}, cancellable = true)
-	private static void swapRenderLayer(CallbackInfoReturnable<RenderLayer> cir) {
-		cir.setReturnValue(TransparencyLayers.getLayer(cir::getReturnValue));
-	}
+    @Inject(at = @At("RETURN"), method = {
+            "getEntityCutout",
+            "getEntitySolid"
+    }, cancellable = true)
+    private static void swapRenderLayer(CallbackInfoReturnable<RenderLayer> cir) {
+        cir.setReturnValue(TransparencyLayers.getItemLayer(cir::getReturnValue));
+    }
 
 }

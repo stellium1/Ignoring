@@ -18,29 +18,26 @@ import org.stellium.ignoring.render.TransparencyLayers;
 @Mixin(RenderLayer.class)
 public class RenderLayerMixin {
 
-	@Inject(at = @At("RETURN"), method = {
-			"getEntityCutout",
-			"getEntitySmoothCutout",
-			"getEntitySolid",
-			"getEntitySolidZOffsetForward",
-			"getEntityNoOutline",
-			"getEntityTranslucentEmissiveNoOutline",
-	}, cancellable = true)
-	private static void swapRenderLayer(Identifier texture, CallbackInfoReturnable<RenderLayer> cir) {
-		cir.setReturnValue(TransparencyLayers.getLayer(texture, cir::getReturnValue));
-	}
+    @Inject(at = @At("RETURN"), method = {
+            "getEntityCutout",
+            "getEntitySmoothCutout",
+            "getEntitySolid",
+            "getEntitySolidZOffsetForward",
+            "getEntityNoOutline",
+            "getEntityTranslucentEmissiveNoOutline",
+    }, cancellable = true)
+    private static void swapRenderLayer(Identifier texture, CallbackInfoReturnable<RenderLayer> cir) {
+        cir.setReturnValue(TransparencyLayers.getLayer(texture, cir::getReturnValue));
+    }
 
-	@Inject(at = @At("RETURN"), method = {
-		"getEntityCutoutNoCull(Lnet/minecraft/util/Identifier;Z)Lnet/minecraft/client/render/RenderLayer;",
-		"getEntityCutoutNoCullZOffset(Lnet/minecraft/util/Identifier;Z)Lnet/minecraft/client/render/RenderLayer;",
-		"getEntityTranslucent(Lnet/minecraft/util/Identifier;Z)Lnet/minecraft/client/render/RenderLayer;",
-		"getEntityTranslucentEmissive(Lnet/minecraft/util/Identifier;Z)Lnet/minecraft/client/render/RenderLayer;"
-	}, cancellable = true)
-	private static void swapRenderLayerBl(Identifier texture, boolean affectsOutline, CallbackInfoReturnable<RenderLayer> cir) {
-		RenderLayer oldLayer = cir.getReturnValue();
-		RenderLayer newLayer = TransparencyLayers.getLayer(texture, () -> oldLayer);
-
-		cir.setReturnValue(newLayer);
-	}
+    @Inject(at = @At("RETURN"), method = {
+            "getEntityCutoutNoCull(Lnet/minecraft/util/Identifier;Z)Lnet/minecraft/client/render/RenderLayer;",
+            "getEntityCutoutNoCullZOffset(Lnet/minecraft/util/Identifier;Z)Lnet/minecraft/client/render/RenderLayer;",
+            "getEntityTranslucent(Lnet/minecraft/util/Identifier;Z)Lnet/minecraft/client/render/RenderLayer;",
+            "getEntityTranslucentEmissive(Lnet/minecraft/util/Identifier;Z)Lnet/minecraft/client/render/RenderLayer;"
+    }, cancellable = true)
+    private static void swapRenderLayerWithBoolean(Identifier texture, boolean affectsOutline, CallbackInfoReturnable<RenderLayer> cir) {
+        cir.setReturnValue(TransparencyLayers.getLayer(texture, cir::getReturnValue));
+    }
 
 }

@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'fabric-loom' version "${loom_version}"
     id 'maven-publish'
 }
 
@@ -10,7 +10,7 @@ base {
     archivesName = project.archives_base_name
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 21
 
 repositories {
     maven { url "https://maven.shedaniel.me/" }
@@ -78,7 +78,7 @@ java {
 
 jar {
     from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}" }
+        rename { "${it}_${project.base.archivesName.get()}" }
     }
 }
 

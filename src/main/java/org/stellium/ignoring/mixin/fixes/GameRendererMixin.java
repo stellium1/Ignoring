@@ -19,11 +19,11 @@ import org.stellium.ignoring.entity.EntityCaptures;
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
 
-	@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;renderWithTooltip(Lnet/minecraft/client/gui/DrawContext;IIF)V"), method = "render")
-	private void generated(Screen instance, DrawContext context, int mouseX, int mouseY, float delta, Operation<Void> original) {
-		EntityCaptures.MAIN.setEnabled(false);
-		original.call(instance, context, mouseX, mouseY, delta);
-		EntityCaptures.MAIN.setEnabled(true);
-	}
+    @WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;renderWithTooltip(Lnet/minecraft/client/gui/DrawContext;IIF)V"), method = "render")
+    private void generated(Screen instance, DrawContext context, int mouseX, int mouseY, float delta, Operation<Void> original) {
+        EntityCaptures.MAIN.setEnabled(false);
+        original.call(instance, context, mouseX, mouseY, delta);
+        EntityCaptures.MAIN.setEnabled(true);
+    }
 
 }
