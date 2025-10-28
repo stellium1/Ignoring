@@ -28,5 +28,27 @@
   "text.ignoring.toggle.ignoreTablist": "탭 무시",
   "text.ignoring.toggle.interactionThroughIgnoredPlayer": "상호작용 무시",
   "text.ignoring.status.enabled": "활성화",
-  "text.ignoring.status.disabled": "비활성화"
+  "text.ignoring.status.disabled": "비활성화",
+
+  "text.ignoring.command.help.header": "=== Ignoring 명령어 ===",
+  "text.ignoring.command.help.togglerender": "렌더 무시 전환",
+  "text.ignoring.command.help.togglechat": "채팅 무시 전환",
+  "text.ignoring.command.help.toggletablist": "탭리스트 무시 전환",
+  "text.ignoring.command.help.toggleinteraction": "무시된 플레이어 통과 상호작용 전환",
+  "text.ignoring.command.help.addignore": "플레이어를 무시 목록에 추가",
+  "text.ignoring.command.help.removeignore": "플레이어를 무시 목록에서 제거",
+  "text.ignoring.command.help.listignore": "모든 무시된 플레이어 목록 표시",
+  "text.ignoring.command.help.transparency": "투명도 값 설정",
+  "text.ignoring.command.help.reload": "설정 파일 리로드",
+  "text.ignoring.command.help.help": "도움말 메시지 표시",
+
+  "text.ignoring.command.addignore.success": "'%s' 플레이어를 무시 목록에 추가했습니다",
+  "text.ignoring.command.addignore.duplicate": "'%s' 플레이어는 이미 무시 목록에 있습니다.",
+  "text.ignoring.command.removeignore.success": "'%s' 플레이어를 무시 목록에서 제거했습니다",
+  "text.ignoring.command.removeignore.notfound": "'%s' 플레이어는 무시 목록에 없습니다",
+  "text.ignoring.command.listignore.header": "=== 무시된 플레이어 목록 ===",
+  "text.ignoring.command.listignore.empty": "무시 목록이 비어있습니다",
+  "text.ignoring.command.transparency.success": "투명도를 %d로 설정했습니다",
+  "text.ignoring.command.reload.success": "Ignoring 리로드 성공",
+  "text.ignoring.command.reload.failed": "Ignoring 리로드 실패: %s"
 }
