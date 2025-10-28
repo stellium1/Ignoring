@@ -28,5 +28,27 @@
   "text.ignoring.toggle.ignoreTablist": "Ignore Tablist",
   "text.ignoring.toggle.interactionThroughIgnoredPlayer": "Click-Through",
   "text.ignoring.status.enabled": "Enabled",
-  "text.ignoring.status.disabled": "Disabled"
+  "text.ignoring.status.disabled": "Disabled",
+
+  "text.ignoring.command.help.header": "=== Ignoring Commands ===",
+  "text.ignoring.command.help.togglerender": "Toggle render ignoring",
+  "text.ignoring.command.help.togglechat": "Toggle chat ignoring",
+  "text.ignoring.command.help.toggletablist": "Toggle tablist ignoring",
+  "text.ignoring.command.help.toggleinteraction": "Toggle interaction through ignored players",
+  "text.ignoring.command.help.addignore": "Add player to ignore list",
+  "text.ignoring.command.help.removeignore": "Remove player from ignore list",
+  "text.ignoring.command.help.listignore": "List all ignored players",
+  "text.ignoring.command.help.transparency": "Set transparency value",
+  "text.ignoring.command.help.reload": "Reload config from file",
+  "text.ignoring.command.help.help": "Show this help message",
+
+  "text.ignoring.command.addignore.success": "Added '%s' to ignore list",
+  "text.ignoring.command.addignore.duplicate": "Player '%s' is already in the ignore list",
+  "text.ignoring.command.removeignore.success": "Removed '%s' from ignore list",
+  "text.ignoring.command.removeignore.notfound": "Player '%s' is not in the ignore list",
+  "text.ignoring.command.listignore.header": "=== Ignored Players ===",
+  "text.ignoring.command.listignore.empty": "Ignore list is empty",
+  "text.ignoring.command.transparency.success": "Transparency set to: %d",
+  "text.ignoring.command.reload.success": "Config reloaded successfully",
+  "text.ignoring.command.reload.failed": "Failed to reload config: %s"
 }

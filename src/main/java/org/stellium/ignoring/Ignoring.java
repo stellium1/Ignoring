@@ -5,6 +5,7 @@ package org.stellium.ignoring;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
@@ -14,6 +15,7 @@ import net.minecraft.util.Formatting;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.stellium.ignoring.command.IgnoringCommands;
 import org.stellium.ignoring.config.IgnoringConfig;
 
 
@@ -24,6 +26,8 @@ public class Ignoring implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Initialized");
+        ClientCommandRegistrationCallback.EVENT.register(IgnoringCommands::register);
+
         KeyBinding openConfigKeybind = new KeyBinding(
           "text.ignoring.key.openConfig",
           InputUtil.Type.KEYSYM,
