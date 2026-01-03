@@ -86,7 +86,7 @@ public class TransparencyManager {
 
 	public static boolean canRenderTransparencyShadow(Entity entity) {
 		IgnoringConfig config = IgnoringConfig.get();
-		return config.ignoredPlayerList.contains(entity.getDisplayName().getString()) && config.ignoreRender;
+		return config.ignoreRender && config.shouldIgnorePlayer(entity);
 
 	}
 }

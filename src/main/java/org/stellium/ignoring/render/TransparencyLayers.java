@@ -74,11 +74,7 @@ public class TransparencyLayers {
 		if (entity == null) {
 			return false;
 		}
-		String entityName = entity.getNameForScoreboard();
-		if (entityName == null) {
-			return false;
-		}
-		return config.ignoredPlayerList.contains(entityName);
+		return config.shouldIgnorePlayer(entity);
 	}
 
 }

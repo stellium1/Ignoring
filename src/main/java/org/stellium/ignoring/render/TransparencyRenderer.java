@@ -21,8 +21,7 @@ public class TransparencyRenderer {
             return;
         }
 
-        String name = entity.getName().getString();
-        if (!cfg.ignoredPlayerList.contains(name)) {
+        if (!cfg.shouldIgnorePlayer(entity)) {
             renderCall.run();
             return;
         }

@@ -19,7 +19,7 @@ public class LivingEntityMixin {
             return;
         }
         LivingEntity entity = (LivingEntity) (Object) this;
-        if (IgnoringConfig.get().ignoredPlayerList.contains(entity.getNameForScoreboard())) {
+        if (IgnoringConfig.get().shouldIgnorePlayer(entity)) {
             cir.setReturnValue(false);
         }
 

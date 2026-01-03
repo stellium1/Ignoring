@@ -21,7 +21,8 @@ public class PlayerTabOverlayMixin {
     )
     private List<PlayerListEntry> redirectCollect(PlayerListHud self) {
         List<PlayerListEntry> original = ((PlayerListHudInvoker) self).invokeCollectPlayerEntries();
-        if (!IgnoringConfig.get().ignoreTablist) {
+        IgnoringConfig config = IgnoringConfig.get();
+        if (!config.ignoreTablist) {
             return original;
         }
         List<PlayerListEntry> copy = new ArrayList<>(original);
@@ -33,8 +34,8 @@ public class PlayerTabOverlayMixin {
 
             String profileName = entry.getProfile().getName();
 
-            return (displayName != null && IgnoringConfig.get().ignoredPlayerList.contains(displayName))
-                || IgnoringConfig.get().ignoredPlayerList.contains(profileName);
+            return (displayName != null && config.isPlayerIgnored(displayName))
+                || config.isPlayerIgnored(profileName);
         });
 
         return copy;

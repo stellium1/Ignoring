@@ -6,6 +6,8 @@
   "text.autoconfig.ignoring.option.ignoredPlayerList": "Ignored Player List",
   "text.autoconfig.ignoring.option.transparency": "Ignored Player Transparency",
   "text.autoconfig.ignoring.option.interactionThroughIgnoredPlayer": "Click Through Ignored Players",
+  "text.autoconfig.ignoring.option.ignoreEveryone": "Ignoring Everyone",
+  "text.autoconfig.ignoring.option.ignoreSpecialCharacter": "Remove trailing special characters (Apply to all)",
 
   "text.autoconfig.ignoring.option.ignoreChat.@Tooltip": "Toggle ignoring chat from blocked players.",
   "text.autoconfig.ignoring.option.ignoreRender.@Tooltip": "Toggle rendering of blocked players.",
@@ -13,6 +15,8 @@
   "text.autoconfig.ignoring.option.transparency.@Tooltip": "Adjust transparency of ignored users' rendering.",
   "text.autoconfig.ignoring.option.interactionThroughIgnoredPlayer.@Tooltip[0]": "Allows clicking blocks/entities behind ignored players.",
   "text.autoconfig.ignoring.option.interactionThroughIgnoredPlayer.@Tooltip[1]": "§cWarning! Use this feature at your own risk. Make sure to follow the server rules.",
+  "text.autoconfig.ignoring.option.ignoreEveryone.@Tooltip": "Ignore all players on the server",
+  "text.autoconfig.ignoring.option.ignoreSpecialCharacter.@Tooltip": "Removes trailing special characters from all chat",
 
   "text.autoconfig.ignoring.option.ignoredPlayerList.@Tooltip": "Manage blocked players manually.",
 
