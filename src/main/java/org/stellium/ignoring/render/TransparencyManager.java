@@ -27,8 +27,8 @@ public class TransparencyManager {
 		MinecraftClient client = MinecraftClient.getInstance();
 		ClientPlayerEntity player = client.player;
 		ClientWorld world = client.world;
-		Vec3d cameraPos = client.gameRenderer.getCamera().getPos();
-		Vec3d entityPos = entity.getPos();
+		Vec3d cameraPos = client.gameRenderer.getCamera().getCameraPos();
+		Vec3d entityPos = entity.getEntityPos();
 
 		if (player == null || world == null) {
 			return original;

@@ -32,7 +32,7 @@ public class PlayerTabOverlayMixin {
                 ? entry.getDisplayName().getString()
                 : null;
 
-            String profileName = entry.getProfile().getName();
+            String profileName = entry.getProfile().name();
 
             return (displayName != null && config.isPlayerIgnored(displayName))
                 || config.isPlayerIgnored(profileName);

@@ -12,6 +12,7 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,7 @@ import org.stellium.ignoring.config.IgnoringConfig;
 public class Ignoring implements ModInitializer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger("Ignoring");
+    private static final KeyBinding.Category IGNORING_CATEGORY = KeyBinding.Category.create(Identifier.of("ignoring", "category"));
 
     @Override
     public void onInitialize() {
@@ -32,35 +34,35 @@ public class Ignoring implements ModInitializer {
           "text.ignoring.key.openConfig",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_P,
-          "text.ignoring.key.category"
+          IGNORING_CATEGORY
         );
 
         KeyBinding toggleIgnoreRenderKeybind = new KeyBinding(
           "text.ignoring.key.toggleIgnoreRender",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_SEMICOLON,
-          "text.ignoring.key.category"
+          IGNORING_CATEGORY
         );
 
         KeyBinding toggleIgnoreChatKeybind = new KeyBinding(
           "text.ignoring.key.toggleIgnoreChat",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_APOSTROPHE,
-          "text.ignoring.key.category"
+          IGNORING_CATEGORY
         );
 
         KeyBinding toggleIgnoreTablistKeybind = new KeyBinding(
           "text.ignoring.key.toggleIgnoreTablist",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_UNKNOWN,
-          "text.ignoring.key.category"
+          IGNORING_CATEGORY
         );
 
         KeyBinding toggleInteractionThroughIgnoredPlayerKeybind = new KeyBinding(
           "text.ignoring.key.toggleInteractionThroughIgnoredPlayer",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_UNKNOWN,
-          "text.ignoring.key.category"
+          IGNORING_CATEGORY
         );
 
         KeyBindingHelper.registerKeyBinding(openConfigKeybind);

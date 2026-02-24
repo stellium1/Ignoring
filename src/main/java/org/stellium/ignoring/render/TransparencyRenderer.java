@@ -1,6 +1,7 @@
 package org.stellium.ignoring.render;
 
 import net.minecraft.entity.Entity;
+import org.jetbrains.annotations.Nullable;
 import org.stellium.ignoring.config.IgnoringConfig;
 import org.stellium.ignoring.entity.EntityCaptures;
 
@@ -12,6 +13,28 @@ import org.stellium.ignoring.entity.EntityCaptures;
  * Licensed under the GNU Lesser General Public License v3.0
 */
 public class TransparencyRenderer {
+
+    private static final ThreadLocal<Entity> CURRENT_ENTITY = new ThreadLocal<>();
+
+    public static void setCurrentEntity(Entity entity) {
+        IgnoringConfig cfg = IgnoringConfig.get();
+        if (cfg.ignoreRender && cfg.shouldIgnorePlayer(entity)) {
+            CURRENT_ENTITY.set(entity);
+            EntityCaptures.MAIN.setEntity(entity);
+        }
+    }
+
+    public static void clearCurrentEntity() {
+        if (CURRENT_ENTITY.get() != null) {
+            CURRENT_ENTITY.remove();
+            EntityCaptures.MAIN.clearEntity();
+        }
+    }
+
+    @Nullable
+    public static Entity getCurrentEntity() {
+        return CURRENT_ENTITY.get();
+    }
 
     public static void handleEntityRendering(Entity entity, Runnable renderCall) {
         IgnoringConfig cfg = IgnoringConfig.get();
