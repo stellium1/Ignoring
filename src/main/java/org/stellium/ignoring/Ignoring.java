@@ -4,6 +4,7 @@
 package org.stellium.ignoring;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.AutoConfigClient;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -12,6 +13,7 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,40 +29,41 @@ public class Ignoring implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Initialized");
         ClientCommandRegistrationCallback.EVENT.register(IgnoringCommands::register);
+        KeyBinding.Category category = KeyBinding.Category.create(Identifier.of("ignoring", "category"));
 
         KeyBinding openConfigKeybind = new KeyBinding(
           "text.ignoring.key.openConfig",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_P,
-          "text.ignoring.key.category"
+          category
         );
 
         KeyBinding toggleIgnoreRenderKeybind = new KeyBinding(
           "text.ignoring.key.toggleIgnoreRender",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_SEMICOLON,
-          "text.ignoring.key.category"
+          category
         );
 
         KeyBinding toggleIgnoreChatKeybind = new KeyBinding(
           "text.ignoring.key.toggleIgnoreChat",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_APOSTROPHE,
-          "text.ignoring.key.category"
+          category
         );
 
         KeyBinding toggleIgnoreTablistKeybind = new KeyBinding(
           "text.ignoring.key.toggleIgnoreTablist",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_UNKNOWN,
-          "text.ignoring.key.category"
+          category
         );
 
         KeyBinding toggleInteractionThroughIgnoredPlayerKeybind = new KeyBinding(
           "text.ignoring.key.toggleInteractionThroughIgnoredPlayer",
           InputUtil.Type.KEYSYM,
           GLFW.GLFW_KEY_UNKNOWN,
-          "text.ignoring.key.category"
+          category
         );
 
         KeyBindingHelper.registerKeyBinding(openConfigKeybind);
@@ -70,7 +73,7 @@ public class Ignoring implements ModInitializer {
         KeyBindingHelper.registerKeyBinding(toggleInteractionThroughIgnoredPlayerKeybind);
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (openConfigKeybind.wasPressed()) {
-                client.setScreen(AutoConfig.getConfigScreen(IgnoringConfig.class, client.currentScreen).get());
+                client.setScreen(AutoConfigClient.getConfigScreen(IgnoringConfig.class, client.currentScreen).get());
             }
 
             if (toggleIgnoreRenderKeybind.wasPressed()) {

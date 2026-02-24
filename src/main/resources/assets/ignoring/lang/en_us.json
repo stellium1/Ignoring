@@ -21,6 +21,7 @@
   "text.autoconfig.ignoring.option.ignoredPlayerList.@Tooltip": "Manage blocked players manually.",
 
   "text.ignoring.key.category": "Ignoring Hotkeys",
+  "key.category.ignoring.category": "Ignoring Hotkeys",
   "text.ignoring.key.openConfig": "Open Config",
   "text.ignoring.key.toggleIgnoreRender": "Toggle Ignore Render",
   "text.ignoring.key.toggleIgnoreChat": "Toggle Ignore Chat",

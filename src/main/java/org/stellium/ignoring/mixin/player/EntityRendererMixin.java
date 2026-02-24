@@ -1,51 +1,47 @@
 package org.stellium.ignoring.mixin.player;
 
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.EntityRenderer;
-import net.minecraft.text.Text;
-import org.joml.Matrix4f;
+import net.minecraft.client.render.command.LabelCommandRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.stellium.ignoring.config.IgnoringConfig;
 import org.stellium.ignoring.entity.EntityCaptures;
 
 import static org.stellium.ignoring.util.ArgbUtils.swapAlpha;
 
-@Mixin(EntityRenderer.class)
+@Mixin(LabelCommandRenderer.Commands.class)
 public class EntityRendererMixin {
 
-    @Redirect(
-            method = "renderLabelIfPresent",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/text/Text;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)V",
-                    ordinal = 0
-            )
+    @ModifyArg(
+        method = "add(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/util/math/Vec3d;ILnet/minecraft/text/Text;ZIDLnet/minecraft/client/render/state/CameraRenderState;)V",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/client/render/command/OrderedRenderCommandQueueImpl$LabelCommand;<init>(Lorg/joml/Matrix4f;FFLnet/minecraft/text/Text;IIID)V"
+        ),
+        index = 5
     )
-    private void injected$sneaking(TextRenderer instance, Text text, float x, float y, int color, boolean shadow, Matrix4f matrix, VertexConsumerProvider vertexConsumers, TextRenderer.TextLayerType layerType, int backgroundColor, int light) {
+    private int ignoring$adjustLabelColor(int color) {
         if (EntityCaptures.MAIN.getEntity() == null) {
-            instance.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
-        } else {
-            instance.draw(text, x, y, swapAlpha(color, IgnoringConfig.get().transparency), shadow, matrix, vertexConsumers, layerType, swapAlpha(backgroundColor, IgnoringConfig.get().transparency), light);
+            return color;
         }
+
+        return swapAlpha(color, IgnoringConfig.get().transparency);
     }
 
-    @Redirect(
-            method = "renderLabelIfPresent",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/text/Text;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)V",
-                    ordinal = 1
-            )
+    @ModifyArg(
+        method = "add(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/util/math/Vec3d;ILnet/minecraft/text/Text;ZIDLnet/minecraft/client/render/state/CameraRenderState;)V",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/client/render/command/OrderedRenderCommandQueueImpl$LabelCommand;<init>(Lorg/joml/Matrix4f;FFLnet/minecraft/text/Text;IIID)V"
+        ),
+        index = 6
     )
-    private void injected$notSneaking(TextRenderer instance, Text text, float x, float y, int color, boolean shadow, Matrix4f matrix, VertexConsumerProvider vertexConsumers, TextRenderer.TextLayerType layerType, int backgroundColor, int light) {
+    private int ignoring$adjustLabelBackgroundColor(int backgroundColor) {
         if (EntityCaptures.MAIN.getEntity() == null) {
-            instance.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
-        } else {
-            instance.draw(text, x, y, swapAlpha(color, IgnoringConfig.get().transparency), shadow, matrix, vertexConsumers, layerType, swapAlpha(backgroundColor, IgnoringConfig.get().transparency), light);
+            return backgroundColor;
         }
+
+        return swapAlpha(backgroundColor, IgnoringConfig.get().transparency);
     }
 
 }

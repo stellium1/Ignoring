@@ -15,6 +15,7 @@ public class EntityContainer {
 
 	public EntityContainer() {
 		this.entity = null;
+		this.enabled = true;
 	}
 
 	public void setEntity(@Nullable Entity entity) {

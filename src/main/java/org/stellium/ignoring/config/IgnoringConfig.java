@@ -78,7 +78,7 @@ public class IgnoringConfig implements ConfigData {
 
         return isListedName(player.getNameForScoreboard())
             || isListedName(player.getName().getString())
-            || isListedName(player.getGameProfile().getName());
+            || isListedName(player.getGameProfile().name());
     }
 
     public boolean isPlayerIgnored(String playerName) {
@@ -112,7 +112,7 @@ public class IgnoringConfig implements ConfigData {
             return true;
         }
 
-        if (playerName.equals(client.player.getGameProfile().getName())) {
+        if (playerName.equals(client.player.getGameProfile().name())) {
             return true;
         }
 

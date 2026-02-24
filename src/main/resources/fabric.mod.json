@@ -20,11 +20,15 @@
     ]
   },
   "mixins": [
-    "ignoring.mixins.json"
+    "ignoring.mixins.json",
+    "ignoring.mixins-sodium.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}"
+  },
+  "breaks": {
+    "sodium": "<0.8.1"
   }
 }
