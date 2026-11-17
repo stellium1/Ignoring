@@ -2,9 +2,9 @@ package org.stellium.ignoring.mixin.fixes;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.render.GameRenderer;
+import com.mojang.blaze3d.buffers.GpuBufferSlice;
+import net.minecraft.client.gui.render.GuiRenderer;
+import net.minecraft.client.renderer.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.stellium.ignoring.entity.EntityCaptures;
@@ -19,11 +19,11 @@ import org.stellium.ignoring.entity.EntityCaptures;
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
 
-    @WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;renderWithTooltip(Lnet/minecraft/client/gui/DrawContext;IIF)V"), method = "render")
-    private void generated(Screen instance, DrawContext context, int mouseX, int mouseY, float delta, Operation<Void> original) {
+    @WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/render/GuiRenderer;render(Lcom/mojang/blaze3d/buffers/GpuBufferSlice;)V"), method = "render(Lnet/minecraft/client/DeltaTracker;Z)V")
+    private void generated(GuiRenderer instance, GpuBufferSlice fogBuffer, Operation<Void> original) {
         EntityCaptures.MAIN.setEnabled(false);
         try {
-            original.call(instance, context, mouseX, mouseY, delta);
+            original.call(instance, fogBuffer);
         } finally {
             EntityCaptures.MAIN.setEnabled(true);
         }

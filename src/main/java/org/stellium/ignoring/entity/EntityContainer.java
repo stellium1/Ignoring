@@ -1,12 +1,8 @@
 package org.stellium.ignoring.entity;
 
-import lombok.*;
-import net.minecraft.entity.Entity;
-
+import net.minecraft.world.entity.Entity;
 import org.jetbrains.annotations.Nullable;
 
-@Getter
-@Setter
 public class EntityContainer {
 
 	@Nullable
@@ -16,6 +12,14 @@ public class EntityContainer {
 	public EntityContainer() {
 		this.entity = null;
 		this.enabled = true;
+	}
+
+	public boolean isEnabled() {
+		return this.enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public void setEntity(@Nullable Entity entity) {
